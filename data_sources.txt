@@ -1,0 +1,8 @@
+# swissALTI3D (swisstopo)
+https://opendata.swiss/de/dataset/swissalti3d
+
+# swissIMAGE (swisstopo)
+https://opendata.swiss/de/dataset/swissimage-10-cm-digitale-orthophotomosaik-der-schweiz
+
+# Gebaeude-Hoehen / Building Heights (Kanton Bern)
+https://opendata.swiss/de/dataset/hohenangaben-des-kantons-bern1
