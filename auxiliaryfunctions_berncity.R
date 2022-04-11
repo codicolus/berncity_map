@@ -75,30 +75,25 @@ load_data <- function(path, type = "DEM", projection = LV95_proj4){
     warning("Type must be either 'IMAGE' or 'DEM'!")
     return(NA)
   }
+  if(is.na(path)){
+    return(NA)
+  }
   
   if(type == "DEM"){
-    if(is.na(path)){
-      return(raster("swissALTI3D/swissALTI3D_merged.tif"))
-    }else{
-      outraster <- raster(path)
-      # set crs if necessary
-      if(is.na(crs(outraster))){
-        crs(outraster) <- crs(projection)
-      }
-      return(outraster)
+    outraster <- raster(path)
+    # set crs if necessary
+    if(is.na(crs(outraster))){
+      crs(outraster) <- crs(projection)
     }
+    return(outraster)
   }
   if(type == "IMAGE"){
-    if(is.na(path)){
-      return(stack("swissIMAGE/swissIMAGE_merged.tif"))
-    }else{
-      outstack <- stack(path)
-      # set crs if necessary
-      if(is.na(crs(outstack))){
-        crs(outstack) <- crs(projection)
-      }
-      return(outstack)
+    outstack <- stack(path)
+    # set crs if necessary
+    if(is.na(crs(outstack))){
+      crs(outstack) <- crs(projection)
     }
+    return(outstack)
   }
 }
 
