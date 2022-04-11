@@ -80,21 +80,16 @@ load_data <- function(path, type = "DEM", projection = LV95_proj4){
   }
   
   if(type == "DEM"){
-    outraster <- raster(path)
-    # set crs if necessary
-    if(is.na(crs(outraster))){
-      crs(outraster) <- crs(projection)
-    }
-    return(outraster)
+    outdata <- raster(path)
+  }else{
+    outdata <- stack(path)
   }
-  if(type == "IMAGE"){
-    outstack <- stack(path)
-    # set crs if necessary
-    if(is.na(crs(outstack))){
-      crs(outstack) <- crs(projection)
-    }
-    return(outstack)
+  
+  # set crs if necessary
+  if(is.na(crs(outdata))){
+    crs(outdata) <- crs(projection)
   }
+  return(outdata)
 }
 
 
